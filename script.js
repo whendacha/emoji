@@ -1,11 +1,12 @@
 const predictions = [
-  "🌟 You’re about to unlock something truly amazing!",
-  "🚀 Big success and adventures await you!",
-  "🍀 Good fortune and new connections are coming your way!",
-  "🔥 You’re ready for unstoppable energy and good vibes!",
-  "🎉 A huge reason to celebrate is on the horizon!"
+  "💥 Big surprises are coming your way — get ready!",
+  "🚀 You’re on track for big wins and adventures!",
+  "🌟 Your energy attracts luck and good vibes!",
+  "🎉 Time to celebrate — big news is near!",
+  "🔥 You’re about to shine like never before!"
 ];
 
+// Заполнение слотов
 document.querySelectorAll('.emoji-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const emoji = btn.textContent;
@@ -24,7 +25,8 @@ document.querySelectorAll('.emoji-btn').forEach(btn => {
   });
 });
 
-document.getElementById("predictBtn").onclick = () => {
+// Огромная кнопка «PREDICT»
+document.getElementById('predictBtn').addEventListener('click', () => {
   const slots = [
     document.getElementById('emoji1').value.trim(),
     document.getElementById('emoji2').value.trim(),
@@ -32,20 +34,20 @@ document.getElementById("predictBtn").onclick = () => {
     document.getElementById('emoji4').value.trim()
   ];
 
-  const allFilled = slots.every(v => v);
+  const allFilled = slots.every(s => s);
 
-  if (!allFilled) {
-    document.getElementById("result").innerHTML = "⚠️ Please fill all 4 emoji slots to get your prediction!";
-    return;
+  if (allFilled) {
+    const prediction = predictions[Math.floor(Math.random() * predictions.length)];
+    document.getElementById('result').innerHTML = `🔮 <strong>${prediction}</strong>`;
+  } else {
+    document.getElementById('result').innerHTML = "⚠️ Please fill ALL 4 emoji slots before predicting!";
   }
+});
 
-  const prediction = predictions[Math.floor(Math.random() * predictions.length)];
-  document.getElementById("result").innerHTML = `🔮 <strong>Your Prediction:</strong> ${prediction}`;
-};
-
-document.getElementById("clearBtn").onclick = () => {
+// Кнопка очистки
+document.getElementById('clearBtn').addEventListener('click', () => {
   ['emoji1', 'emoji2', 'emoji3', 'emoji4'].forEach(id => {
-    document.getElementById(id).value = "";
+    document.getElementById(id).value = '';
   });
-  document.getElementById("result").innerHTML = "";
-};
+  document.getElementById('result').innerHTML = '';
+});
