@@ -51,9 +51,10 @@ const fakeMeanings = {
   "🏆": "Trophy: Win, award, victory."
 };
 
-document.querySelectorAll('.emoji-keyboard span').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const emoji = btn.textContent;
+document.querySelectorAll('.emoji-keyboard').forEach(container => {
+  container.addEventListener('click', e => {
+    if (e.target.tagName === 'SPAN' || e.target.tagName === 'DIV') return;
+    const emoji = e.target.textContent.trim();
     const slots = [
       document.getElementById('emoji1'),
       document.getElementById('emoji2'),
@@ -87,7 +88,7 @@ function updateResult() {
   let result = "";
   slots.forEach((emoji, i) => {
     if (emoji) {
-      const meaning = fakeMeanings[emoji] || `No meaning found for "${emoji}".`;
+      const meaning = fakeMeanings[emoji] || `No meaning for "${emoji}".`;
       result += `<p><strong>Emoji ${i + 1}:</strong> ${meaning}</p>`;
     }
   });
