@@ -1,25 +1,11 @@
-const fakeMeanings = {
-  "😀": "Grinning: Joy, positivity, open mood.",
-  "😂": "Tears of joy: Hilarious, can't stop laughing.",
-  "😍": "Heart eyes: Deep affection or attraction.",
-  "🤔": "Thinking: Pondering, curiosity, question.",
-  "🔥": "Fire: Hot, trendy, viral.",
-  "❤️": "Heart: Love, care, warm feelings.",
-  "🎉": "Party popper: Celebration, success.",
-  "👍": "Thumbs up: Approval, good job.",
-  "🙌": "Raised hands: Cheers, praise, excitement.",
-  "🤯": "Exploding head: Mind blown!",
-  "🥳": "Party face: Happy celebration.",
-  "💯": "100 points: Perfect, top score.",
-  "🌈": "Rainbow: Hope, positive vibes, diversity.",
-  "⭐": "Star: Favorite, highlight.",
-  "🫶": "Heart hands: Pure love, connection.",
-  "🤝": "Handshake: Deal, partnership, agreement.",
-  "😎": "Cool face: Chill, stylish, confident.",
-  "😅": "Sweat smile: Relief, slight awkwardness.",
-  "😇": "Innocent face: Pure, good boy/girl.",
-  "😋": "Yummy face: Delicious food, tasty treat."
-};
+const predictions = [
+  "You’re about to have an amazing day full of surprises!",
+  "Big opportunities and positive vibes are coming your way!",
+  "You’re ready for success, joy and new adventures!",
+  "Something wonderful is about to happen — stay open!",
+  "This combo means good luck, fun and celebration ahead!",
+  "Your energy will attract new people and ideas — enjoy it!"
+];
 
 document.querySelectorAll('.emoji-btn').forEach(btn => {
   btn.addEventListener('click', () => {
@@ -30,7 +16,6 @@ document.querySelectorAll('.emoji-btn').forEach(btn => {
       document.getElementById('emoji3'),
       document.getElementById('emoji4')
     ];
-
     for (let slot of slots) {
       if (!slot.value) {
         slot.value = emoji;
@@ -41,7 +26,21 @@ document.querySelectorAll('.emoji-btn').forEach(btn => {
 });
 
 document.getElementById("predictBtn").onclick = () => {
-  updateResult();
+  const slots = [
+    document.getElementById('emoji1').value.trim(),
+    document.getElementById('emoji2').value.trim(),
+    document.getElementById('emoji3').value.trim(),
+    document.getElementById('emoji4').value.trim()
+  ];
+
+  const anyFilled = slots.some(v => v);
+  if (!anyFilled) {
+    document.getElementById("result").innerHTML = "👉 Please pick at least one emoji!";
+    return;
+  }
+
+  const prediction = predictions[Math.floor(Math.random() * predictions.length)];
+  document.getElementById("result").innerHTML = `🔮 <strong>Prediction:</strong> ${prediction}`;
 };
 
 document.getElementById("clearBtn").onclick = () => {
@@ -50,20 +49,3 @@ document.getElementById("clearBtn").onclick = () => {
   });
   document.getElementById("result").innerHTML = "";
 };
-
-function updateResult() {
-  const slots = [
-    document.getElementById('emoji1').value.trim(),
-    document.getElementById('emoji2').value.trim(),
-    document.getElementById('emoji3').value.trim(),
-    document.getElementById('emoji4').value.trim()
-  ];
-  let result = "";
-  slots.forEach((emoji, i) => {
-    if (emoji) {
-      const meaning = fakeMeanings[emoji] || `No meaning for "${emoji}".`;
-      result += `<p><strong>Emoji ${i + 1}:</strong> ${meaning}</p>`;
-    }
-  });
-  document.getElementById("result").innerHTML = result || "";
-}
