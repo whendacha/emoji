@@ -71,6 +71,30 @@ h1 {
   transform: scale(1.1);
 }
 
+.btn-group {
+  margin: 30px 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+#predictBtn {
+  background: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 14px 30px;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: background 0.2s, transform 0.1s;
+}
+
+#predictBtn:hover {
+  background: #449d48;
+  transform: scale(1.05);
+}
+
 #clearBtn {
   background: #ff4d4d;
   color: #fff;
