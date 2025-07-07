@@ -22,6 +22,29 @@ h1 {
   padding: 10px;
   width: 100px;
   height: 100px;
+  cursor: pointer;
+}
+
+.emoji-keyboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px;
+}
+
+.emoji-btn {
+  font-size: 2rem;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  background: white;
+  transition: background 0.2s;
+}
+
+.emoji-btn:hover {
+  background: #eee;
 }
 
 #generateBtn {
@@ -36,4 +59,3 @@ h1 {
   margin-right: auto;
   text-align: left;
 }
-
