@@ -102,12 +102,28 @@ h1 {
   position: absolute;
   font-size: 3rem;
   pointer-events: none;
-  animation: flyAcross 12s linear infinite;
+  animation: flyAcross 20s linear infinite; /* летает ПОСТОЯННО и МЕДЛЕННО */
 }
 
 @keyframes flyAcross {
-  0% { left: -50px; top: 60%; opacity: 0; transform: rotate(0deg); }
-  10% { opacity: 1; }
-  50% { left: 50%; top: 30%; transform: rotate(180deg); }
-  100% { left: 110%; top: 40%; opacity: 0; transform: rotate(360deg); }
+  0% {
+    left: -80px;
+    top: 60%;
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    left: 50%;
+    top: 30%;
+    transform: rotate(180deg);
+  }
+  100% {
+    left: 110%;
+    top: 40%;
+    opacity: 0;
+    transform: rotate(360deg);
+  }
 }
