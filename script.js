@@ -1,20 +1,25 @@
+const fakeMeanings = {
+  "🌞": "Sun: Symbol of warmth, energy, and new beginnings.",
+  "✌️": "Peace: Sign of harmony, balance, and positive vibes.",
+  "⛺": "Tent: Adventure, camping, and nature escape.",
+  "🔟": "Ten: Full score, perfection, or top rating."
+};
+
 document.getElementById("generateBtn").onclick = () => {
-  const input = document.getElementById("emojiInput").value.trim();
-  if (!input) {
-    document.getElementById("result").innerText = "Please enter some emojis!";
-    return;
-  }
+  const e1 = document.getElementById("emoji1").value.trim();
+  const e2 = document.getElementById("emoji2").value.trim();
+  const e3 = document.getElementById("emoji3").value.trim();
+  const e4 = document.getElementById("emoji4").value.trim();
 
-  const templates = [
-    `This emoji combo means a perfect day full of fun and surprises: ${input}`,
-    `Looks like you're planning something cool: ${input}`,
-    `Adventure vibes detected: ${input}`,
-    `Something happy is about to happen: ${input}`,
-    `These symbols suggest good luck and good vibes: ${input}`,
-    `Interpreted as a secret plan full of smiles: ${input}`,
-    `A story in symbols: ${input} — be ready for excitement!`
-  ];
+  const emojies = [e1, e2, e3, e4];
+  let output = "";
 
-  const meaning = templates[Math.floor(Math.random() * templates.length)];
-  document.getElementById("result").innerText = meaning;
+  emojies.forEach((emoji, index) => {
+    if (emoji) {
+      const meaning = fakeMeanings[emoji] || `No preset meaning for "${emoji}". Looks interesting!`;
+      output += `<p><strong>Emoji ${index + 1}:</strong> ${meaning}</p>`;
+    }
+  });
+
+  document.getElementById("result").innerHTML = output || "Please enter at least one emoji!";
 };
