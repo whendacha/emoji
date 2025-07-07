@@ -37,10 +37,12 @@ document.querySelectorAll('.emoji-btn').forEach(btn => {
         break;
       }
     }
-
-    updateResult();
   });
 });
+
+document.getElementById("predictBtn").onclick = () => {
+  updateResult();
+};
 
 document.getElementById("clearBtn").onclick = () => {
   ['emoji1', 'emoji2', 'emoji3', 'emoji4'].forEach(id => {
