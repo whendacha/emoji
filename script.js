@@ -1,28 +1,20 @@
-const apiKey = "YOUR_OPENAI_API_KEY"; // Вставь свой API-ключ
+document.getElementById("generateBtn").onclick = () => {
+  const input = document.getElementById("emojiInput").value.trim();
+  if (!input) {
+    document.getElementById("result").innerText = "Please enter some emojis!";
+    return;
+  }
 
-document.getElementById("generateBtn").onclick = async () => {
-  const input = document.getElementById("emojiInput").value;
+  const templates = [
+    `This emoji combo means a perfect day full of fun and surprises: ${input}`,
+    `Looks like you're planning something cool: ${input}`,
+    `Adventure vibes detected: ${input}`,
+    `Something happy is about to happen: ${input}`,
+    `These symbols suggest good luck and good vibes: ${input}`,
+    `Interpreted as a secret plan full of smiles: ${input}`,
+    `A story in symbols: ${input} — be ready for excitement!`
+  ];
 
-  const prompt = `Explain the meaning and create a short description for this emoji sequence: ${input}`;
-
-  const response = await fetch("https://api.openai.com/v1/chat/completions", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": `Bearer ${apiKey}`
-    },
-    body: JSON.stringify({
-      model: "gpt-4o",
-      messages: [
-        {
-          role: "user",
-          content: prompt
-        }
-      ]
-    })
-  });
-
-  const data = await response.json();
-  document.getElementById("result").innerText = data.choices[0].message.content;
+  const meaning = templates[Math.floor(Math.random() * templates.length)];
+  document.getElementById("result").innerText = meaning;
 };
-
