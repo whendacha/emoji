@@ -22,7 +22,6 @@ h1 {
   padding: 10px;
   width: 100px;
   height: 100px;
-  cursor: pointer;
 }
 
 .emoji-keyboard {
@@ -31,6 +30,9 @@ h1 {
   justify-content: center;
   gap: 10px;
   margin: 20px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .emoji-btn {
@@ -38,7 +40,7 @@ h1 {
   cursor: pointer;
   border: 1px solid #ccc;
   border-radius: 8px;
-  padding: 10px;
+  padding: 8px 12px;
   background: white;
   transition: background 0.2s;
 }
