@@ -18,55 +18,26 @@ const fakeMeanings = {
   "😎": "Cool face: Chill, stylish, confident.",
   "😅": "Sweat smile: Relief, slight awkwardness.",
   "😇": "Innocent face: Pure, good boy/girl.",
-  "😋": "Yummy face: Delicious food, tasty treat.",
-  "🥰": "Smiling hearts: Loving feelings.",
-  "🤗": "Hugging face: Warm welcome, care.",
-  "😜": "Winking tongue: Joking, playful tease.",
-  "😻": "Heart cat: Love for pets.",
-  "😡": "Angry face: Frustration, rage.",
-  "😴": "Sleeping face: Tired, sleepy.",
-  "😭": "Crying face: Sad, tears.",
-  "🤩": "Star eyes: Amazed, wow!",
-  "🤑": "Money face: Greedy, profit, gain.",
-  "🤪": "Crazy face: Goofy fun, silly mood.",
-  "🤠": "Cowboy hat: Wild, free spirit.",
-  "👀": "Eyes: Watching, curious, looking.",
-  "💡": "Light bulb: Idea, insight.",
-  "🫠": "Melting face: Embarrassed, fading.",
-  "👑": "Crown: King, queen, top.",
-  "🚀": "Rocket: Fast growth, launch.",
-  "🎯": "Target: Focus, goal, precision.",
-  "📌": "Pin: Important note, reminder.",
-  "🕊️": "Dove: Peace, hope, calm.",
-  "🦄": "Unicorn: Unique, rare.",
-  "☀️": "Sun: Warmth, energy, bright day.",
-  "🌙": "Moon: Night, calm, dreams.",
-  "🌟": "Glowing star: Special highlight.",
-  "⚡": "Lightning: Energy, speed, power.",
-  "🍀": "Clover: Luck, fortune.",
-  "🌹": "Rose: Romance, love.",
-  "🍕": "Pizza: Food, fun, casual vibe.",
-  "🎶": "Music: Songs, melody, fun.",
-  "🎮": "Gamepad: Gaming, playtime.",
-  "🏆": "Trophy: Win, award, victory."
+  "😋": "Yummy face: Delicious food, tasty treat."
 };
 
-document.querySelectorAll('.emoji-keyboard').forEach(container => {
-  container.addEventListener('click', e => {
-    if (e.target.tagName === 'SPAN' || e.target.tagName === 'DIV') return;
-    const emoji = e.target.textContent.trim();
+document.querySelectorAll('.emoji-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const emoji = btn.textContent;
     const slots = [
       document.getElementById('emoji1'),
       document.getElementById('emoji2'),
       document.getElementById('emoji3'),
       document.getElementById('emoji4')
     ];
+
     for (let slot of slots) {
       if (!slot.value) {
         slot.value = emoji;
         break;
       }
     }
+
     updateResult();
   });
 });
