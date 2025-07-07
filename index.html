@@ -1,20 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Emoji Interpreter</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
   <script defer src="script.js"></script>
 </head>
 <body>
   <h1>Emoji Interpreter</h1>
+
   <div class="emoji-grid">
-    <input type="text" class="emoji-input" id="emoji1" placeholder="Emoji 1">
-    <input type="text" class="emoji-input" id="emoji2" placeholder="Emoji 2">
-    <input type="text" class="emoji-input" id="emoji3" placeholder="Emoji 3">
-    <input type="text" class="emoji-input" id="emoji4" placeholder="Emoji 4">
+    <input type="text" class="emoji-input" id="emoji1" placeholder="Emoji 1" readonly>
+    <input type="text" class="emoji-input" id="emoji2" placeholder="Emoji 2" readonly>
+    <input type="text" class="emoji-input" id="emoji3" placeholder="Emoji 3" readonly>
+    <input type="text" class="emoji-input" id="emoji4" placeholder="Emoji 4" readonly>
   </div>
+
+  <div class="emoji-keyboard">
+    <span class="emoji-btn">🌞</span>
+    <span class="emoji-btn">✌️</span>
+    <span class="emoji-btn">⛺</span>
+    <span class="emoji-btn">🔟</span>
+    <span class="emoji-btn">🔥</span>
+    <span class="emoji-btn">❤️</span>
+    <span class="emoji-btn">🎉</span>
+    <span class="emoji-btn">🌈</span>
+    <!-- Добавь больше эмодзи по вкусу -->
+  </div>
+
   <button id="generateBtn">Interpret</button>
+
   <div id="result"></div>
 </body>
 </html>
