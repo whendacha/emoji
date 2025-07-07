@@ -1,10 +1,9 @@
 const predictions = [
-  "You’re about to have an amazing day full of surprises!",
-  "Big opportunities and positive vibes are coming your way!",
-  "You’re ready for success, joy and new adventures!",
-  "Something wonderful is about to happen — stay open!",
-  "This combo means good luck, fun and celebration ahead!",
-  "Your energy will attract new people and ideas — enjoy it!"
+  "🌟 You’re about to unlock something truly amazing!",
+  "🚀 Big success and adventures await you!",
+  "🍀 Good fortune and new connections are coming your way!",
+  "🔥 You’re ready for unstoppable energy and good vibes!",
+  "🎉 A huge reason to celebrate is on the horizon!"
 ];
 
 document.querySelectorAll('.emoji-btn').forEach(btn => {
@@ -33,14 +32,15 @@ document.getElementById("predictBtn").onclick = () => {
     document.getElementById('emoji4').value.trim()
   ];
 
-  const anyFilled = slots.some(v => v);
-  if (!anyFilled) {
-    document.getElementById("result").innerHTML = "👉 Please pick at least one emoji!";
+  const allFilled = slots.every(v => v);
+
+  if (!allFilled) {
+    document.getElementById("result").innerHTML = "⚠️ Please fill all 4 emoji slots to get your prediction!";
     return;
   }
 
   const prediction = predictions[Math.floor(Math.random() * predictions.length)];
-  document.getElementById("result").innerHTML = `🔮 <strong>Prediction:</strong> ${prediction}`;
+  document.getElementById("result").innerHTML = `🔮 <strong>Your Prediction:</strong> ${prediction}`;
 };
 
 document.getElementById("clearBtn").onclick = () => {
