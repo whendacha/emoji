@@ -4,7 +4,7 @@ body {
   background: #f2f2f2;
   padding: 30px;
   margin: 0;
-  overflow-x: hidden; /* убираем полосу! */
+  overflow-x: hidden;
   position: relative;
 }
 
@@ -101,17 +101,13 @@ h1 {
 #fairy {
   position: absolute;
   font-size: 3rem;
-  opacity: 0;
   pointer-events: none;
-}
-
-.fly {
-  animation: flyAcross 2.5s ease-out forwards;
+  animation: flyAcross 12s linear infinite;
 }
 
 @keyframes flyAcross {
-  0% { left: -50px; top: 50%; opacity: 0; transform: rotate(0deg); }
+  0% { left: -50px; top: 60%; opacity: 0; transform: rotate(0deg); }
   10% { opacity: 1; }
   50% { left: 50%; top: 30%; transform: rotate(180deg); }
-  100% { left: 110%; top: 20%; opacity: 0; transform: rotate(360deg); }
+  100% { left: 110%; top: 40%; opacity: 0; transform: rotate(360deg); }
 }
