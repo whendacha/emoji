@@ -30,9 +30,6 @@ h1 {
   justify-content: center;
   gap: 10px;
   margin: 20px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .emoji-btn {
